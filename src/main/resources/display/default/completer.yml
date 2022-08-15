@@ -1,0 +1,42 @@
+completer:
+
+  #当输入了/easyCustomItem后将提示补全以下内容
+  easyCustomItem:
+    - "help"
+    - "correctYaml"
+    - "addItemItemFlag"
+    - "addItemLore"
+    - "reloadPlugin"
+    - "removeItemItemFlag"
+    - "removeItemLore"
+    - "removeItemPersistentData"
+    - "resetItemCustomModelData"
+    - "resetItemDisplayName"
+    - "resetItemItemFlag"
+    - "resetItemLore"
+    - "resetItemPersistentData"
+    - "setItemPersistentData"
+    - "setItemCustomModelData"
+    - "setItemDisplayName"
+    - "setItemLore"
+    - "showItemInformation"
+  easyCustomItemAddItemItemFlag:
+    - "<标志>"
+  easyCustomItemAddItemLore:
+    - "<描述>"
+  easyCustomItemSetItemPersistentData:
+    - "<键>"
+  easyCustomItemSetItemPersistentData$:
+    - "<值>"
+  easyCustomItemRemoveItemItemFlag:
+    - "<标志>"
+  easyCustomItemRemoveItemPersistentData:
+    - "<键>"
+  easyCustomItemSetItemCustomModelData:
+    - "<值>"
+  easyCustomItemSetItemDisplayName:
+    - "<名字>"
+  easyCustomItemSetItemLore:
+    - "<行数>"
+  easyCustomItemSetItemLore$:
+    - "<描述>"

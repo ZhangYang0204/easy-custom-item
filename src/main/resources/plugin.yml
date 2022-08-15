@@ -1,0 +1,11 @@
+name: EasyCustomItem
+version: 1.1.2
+main: pers.zhangyang.easycustomitem.EasyCustomItem
+api-version: 1.13
+commands:
+  EasyCustomItem:
+    aliases: eci
+softdepend:
+  - PlaceholderAPI
+  - Vault
+  - PlayerPoints

@@ -1,0 +1,98 @@
+message:
+
+
+  chat:
+    failureGetLatestVersion:
+      - "&c&l获得EasyCustomItem最新版本失败。"
+    notPermission:
+      - "&c&l您缺少权限 &f{permission}。"
+    correctYaml:
+      - "&b&l已修正所有Yaml文件缺少和多余键值。"
+    help:
+      - "&b&l====帮助列表===="
+      - "&b&l/EasyCustomItem help       查看帮助"
+      - "&b&l/EasyCustomItem correctYaml       修正Yaml文件"
+      - "&b&l/EasyCustomItem reloadPlugin       重载插件"
+      - "&b&l/EasyCustomItem addItemItemFlag <标志>       添加标志"
+      - "&b&l/EasyCustomItem addItemLore <描述>       为最后一行添加描述"
+      - "&b&l/EasyCustomItem removeItemItemFlag <标志>       删除标志"
+      - "&b&l/EasyCustomItem removeItemLore       删除最后一行描述"
+      - "&b&l/EasyCustomItem removePersistentData <键> <值>      删除字符串持久数据，键必须满足[a-z0-9/._-]"
+      - "&b&l/EasyCustomItem resetItemCustomModelData       重置CustomModelData"
+      - "&b&l/EasyCustomItem resetItemDisplayName       重置名字"
+      - "&b&l/EasyCustomItem resetItemItemFlag       重置标志"
+      - "&b&l/EasyCustomItem resetItemLore       重置描述"
+      - "&b&l/EasyCustomItem resetPersistentData        重置字符串持久数据"
+      - "&b&l/EasyCustomItem setItemPersistentData <键> <值>       添加字符串持久数据，键必须满足[a-z0-9/._-]"
+      - "&b&l/EasyCustomItem setItemCustomModelData <值>       设置CustomModelData"
+      - "&b&l/EasyCustomItem setItemDisplayName <名字>       设置名字"
+      - "&b&l/EasyCustomItem setItemLore <行> <描述>       给这行设置描述"
+      - "&b&l/EasyCustomItem showItemInformation       展示物品的信息"
+    notifyVersion:
+      - "&b&lEasyCustomItem的当前版本是 &f{current_version}，&b&l最新版本是 &f{latest_version}。"
+    enablePlugin:
+      - "&a╭━━━╮╱╱╱╱╱╱╱╱╱╭━━━╮╱╱╱╱╱╭╮╱╱╱╱╱╱╭━━┳╮"
+      - "&a┃╭━━╯╱╱╱╱╱╱╱╱╱┃╭━╮┃╱╱╱╱╭╯╰╮╱╱╱╱╱╰┫┣╯╰╮"
+      - "&a┃╰━━┳━━┳━━┳╮╱╭┫┃╱╰╋╮╭┳━┻╮╭╋━━┳╮╭╮┃┣╮╭╋━━┳╮╭╮"
+      - "&a┃╭━━┫╭╮┃━━┫┃╱┃┃┃╱╭┫┃┃┃━━┫┃┃╭╮┃╰╯┃┃┃┃┃┃┃━┫╰╯┃"
+      - "&a┃╰━━┫╭╮┣━━┃╰━╯┃╰━╯┃╰╯┣━━┃╰┫╰╯┃┃┃┣┫┣┫╰┫┃━┫┃┃┃"
+      - "&a╰━━━┻╯╰┻━━┻━╮╭┻━━━┻━━┻━━┻━┻━━┻┻┻┻━━┻━┻━━┻┻┻╯"
+    disablePlugin:
+      - "&c╭━━━╮╱╱╱╱╱╱╱╱╱╭━━━╮╱╱╱╱╱╭╮╱╱╱╱╱╱╭━━┳╮"
+      - "&c┃╭━━╯╱╱╱╱╱╱╱╱╱┃╭━╮┃╱╱╱╱╭╯╰╮╱╱╱╱╱╰┫┣╯╰╮"
+      - "&c┃╰━━┳━━┳━━┳╮╱╭┫┃╱╰╋╮╭┳━┻╮╭╋━━┳╮╭╮┃┣╮╭╋━━┳╮╭╮"
+      - "&c┃╭━━┫╭╮┃━━┫┃╱┃┃┃╱╭┫┃┃┃━━┫┃┃╭╮┃╰╯┃┃┃┃┃┃┃━┫╰╯┃"
+      - "&c┃╰━━┫╭╮┣━━┃╰━╯┃╰━╯┃╰╯┣━━┃╰┫╰╯┃┃┃┣┫┣┫╰┫┃━┫┃┃┃"
+      - "&c╰━━━┻╯╰┻━━┻━╮╭┻━━━┻━━┻━━┻━┻━━┻┻┻┻━━┻━┻━━┻┻┻╯"
+
+
+    invalidArgument:
+      - "&c&l无效的参数 &f{argument}。"
+    notItemInMainHand:
+      - "&c&l主手必须持有物品"
+    notPlayer:
+      - "&c&l不是玩家不能执行这个操作。"
+
+    addItemLore:
+      - "&B&l增加了一行描述"
+    resetItemDisplayName:
+      - "&b&l重置了名字"
+    resetItemCustomModelData:
+      - "&b&l重置了CustomModelData"
+    resetItemLore:
+      - "&b&l重置了描述"
+    reloadPlugin:
+      - "&b&l重载插件成功。"
+    setItemCustomModelData:
+      - "&b&l设置了手中物品的CustomModelData数据"
+    setItemsetItemDisplayName:
+      - "&b&l设置了手中物品的名字"
+    setItemLore:
+      - "&b&l设置了手中物品的描述"
+    removeItemLore:
+      - "&b&l删除了最后一行描述"
+    addItemFlag:
+      - "&b&l添加了标志"
+    removeItemFlag:
+      - "&b&l移除了标志"
+    resetItemFlag:
+      - "&b&l重置标志"
+    addItemPersistentData:
+      - "&b&l添加了一条持久数据"
+    removeItemPersistentData:
+      - "&b&l移除了这条持久数据"
+    resetItemPersistentData:
+      - "&b&l重置了持久数据"
+
+    notExistItemFlag:
+      - "不存在的标志"
+    duplicateItemFlag:
+      - "&c&l已经添加过这个标志了"
+    notExistLoreWhenSetItemLore:
+      - "&c&l不存在的Lore"
+    notExistLineWhenSetItemLore:
+      - "&c&l不存在的行"
+    notExistLoreWhenRemoveItemLore:
+      - "&c&l不存在的Lore"
+    notExistLineWhenRemoveItemLore:
+      - "&c&l不存在的行"
