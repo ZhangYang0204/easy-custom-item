@@ -9,13 +9,12 @@ import org.jetbrains.annotations.NotNull;
 import pers.zhangyang.easylibrary.base.ExecutorBase;
 import pers.zhangyang.easylibrary.util.MessageUtil;
 import pers.zhangyang.easylibrary.util.PlayerUtil;
-import pers.zhangyang.easylibrary.util.VersionUtil;
 import pers.zhangyang.easylibrary.yaml.MessageYaml;
 
 import java.util.List;
 
-public class ResetItemCustomModelDataExecutor extends ExecutorBase {
-    public ResetItemCustomModelDataExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
+public class ResetItemStackDisplayNameExecutor extends ExecutorBase {
+    public ResetItemStackDisplayNameExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
         super(sender, commandName, args);
     }
 
@@ -23,9 +22,6 @@ public class ResetItemCustomModelDataExecutor extends ExecutorBase {
     protected void run() {
 
         if (args.length!=0){
-            return;
-        }
-        if (VersionUtil.getMinecraftBigVersion()==1&&VersionUtil.getMinecraftMiddleVersion()<13){
             return;
         }
 
@@ -48,13 +44,11 @@ public class ResetItemCustomModelDataExecutor extends ExecutorBase {
 
         ItemMeta itemMeta=itemStack.getItemMeta();
         assert itemMeta != null;
-        if (itemMeta.hasCustomModelData()) {
-            itemMeta.setCustomModelData(null);
-        }
+        itemMeta.setDisplayName(null);
 
         itemStack.setItemMeta(itemMeta);
 
-        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.resetItemCustomModelData");
+        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.resetItemStackDisplayName");
         MessageUtil.sendMessageTo(sender,list);
     }
 }

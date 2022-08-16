@@ -6,7 +6,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 import pers.zhangyang.easylibrary.EasyPlugin;
 import pers.zhangyang.easylibrary.base.ExecutorBase;
@@ -20,14 +19,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class SetItemPersistentDataExecutor extends ExecutorBase {
-    public SetItemPersistentDataExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
+public class RemoveItemStackPersistentDataExecutor extends ExecutorBase {
+    public RemoveItemStackPersistentDataExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
         super(sender, commandName, args);
     }
 
+
     @Override
     protected void run() {
-        if (args.length!=2){
+        if (args.length!=1){
             return;
         }
         if (VersionUtil.getMinecraftBigVersion()==1&&VersionUtil.getMinecraftMiddleVersion()<14){
@@ -50,6 +50,9 @@ public class SetItemPersistentDataExecutor extends ExecutorBase {
             MessageUtil.sendMessageTo(sender,list);
             return;
         }
+
+
+
         if (!Pattern.matches("^[a-z0-9/._-]+$", args[0])){
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list!=null) {
@@ -58,13 +61,15 @@ public class SetItemPersistentDataExecutor extends ExecutorBase {
             MessageUtil.sendMessageTo(sender,list);
             return;
         }
+
+
         ItemMeta itemMeta=itemStack.getItemMeta();
         assert itemMeta != null;
         NamespacedKey namespacedKey=new NamespacedKey(EasyPlugin.instance,args[0]);
-        itemMeta.getPersistentDataContainer().set(namespacedKey, PersistentDataType.STRING,args[1]);
+        itemMeta.getPersistentDataContainer().remove(namespacedKey);
         itemStack.setItemMeta(itemMeta);
 
-        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.addItemPersistentData");
+        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.removeItemStackPersistentData");
         MessageUtil.sendMessageTo(sender,list);
     }
 }

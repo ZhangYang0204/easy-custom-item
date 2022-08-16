@@ -9,30 +9,25 @@ import org.jetbrains.annotations.NotNull;
 import pers.zhangyang.easylibrary.base.ExecutorBase;
 import pers.zhangyang.easylibrary.util.MessageUtil;
 import pers.zhangyang.easylibrary.util.PlayerUtil;
-import pers.zhangyang.easylibrary.util.ReplaceUtil;
 import pers.zhangyang.easylibrary.util.VersionUtil;
 import pers.zhangyang.easylibrary.yaml.MessageYaml;
 
-import java.util.Collections;
 import java.util.List;
 
-public class SetItemCustomModelDataExecutor extends ExecutorBase {
-    public SetItemCustomModelDataExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
+public class ShowItemStackInformationExecutor extends ExecutorBase {
+    public ShowItemStackInformationExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
         super(sender, commandName, args);
     }
 
     @Override
     protected void run() {
 
-        if (args.length!=1){
-            return;
-        }
-        if (VersionUtil.getMinecraftBigVersion()==1&&VersionUtil.getMinecraftMiddleVersion()<13){
+
+        if (args.length!=0){
             return;
         }
 
-
-        if (!(sender instanceof  Player)){
+        if (!(sender instanceof Player)){
 
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notPlayer");
             MessageUtil.sendMessageTo(sender,list);
@@ -40,18 +35,6 @@ public class SetItemCustomModelDataExecutor extends ExecutorBase {
         }
         Player player= (Player) sender;
 
-        int data;
-
-        try {
-            data=Integer.parseInt(args[0]);
-        }catch (NumberFormatException e){
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
-            if (list!=null) {
-                ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[0]));
-            }
-            MessageUtil.sendMessageTo(sender,list);
-            return;
-        }
 
         ItemStack itemStack= PlayerUtil.getItemInMainHand(player);
         if (itemStack.getType().equals(Material.AIR)){
@@ -62,10 +45,9 @@ public class SetItemCustomModelDataExecutor extends ExecutorBase {
 
         ItemMeta itemMeta=itemStack.getItemMeta();
         assert itemMeta != null;
-        itemMeta.setCustomModelData(data);
+
+        MessageUtil.sendMessageTo(sender, itemStack.toString());
 
 
-        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.setItemCustomModelData");
-        MessageUtil.sendMessageTo(sender,list);
     }
 }

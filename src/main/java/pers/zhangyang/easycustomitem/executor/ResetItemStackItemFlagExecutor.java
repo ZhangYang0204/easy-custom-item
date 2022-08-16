@@ -9,27 +9,22 @@ import org.jetbrains.annotations.NotNull;
 import pers.zhangyang.easylibrary.base.ExecutorBase;
 import pers.zhangyang.easylibrary.util.MessageUtil;
 import pers.zhangyang.easylibrary.util.PlayerUtil;
-import pers.zhangyang.easylibrary.util.VersionUtil;
 import pers.zhangyang.easylibrary.yaml.MessageYaml;
 
 import java.util.List;
 
-public class ShowItemInformationExecutor extends ExecutorBase {
-    public ShowItemInformationExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
+public class ResetItemStackItemFlagExecutor extends ExecutorBase {
+    public ResetItemStackItemFlagExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
         super(sender, commandName, args);
     }
+
 
     @Override
     protected void run() {
 
-
         if (args.length!=0){
             return;
         }
-        if (VersionUtil.getMinecraftBigVersion()==1&&VersionUtil.getMinecraftMiddleVersion()<13){
-            return;
-        }
-
 
         if (!(sender instanceof Player)){
 
@@ -47,11 +42,15 @@ public class ShowItemInformationExecutor extends ExecutorBase {
             return;
         }
 
+
         ItemMeta itemMeta=itemStack.getItemMeta();
         assert itemMeta != null;
 
-        MessageUtil.sendMessageTo(sender, itemStack.toString());
+        itemMeta.getItemFlags().clear();
+        itemStack.setItemMeta(itemMeta);
 
 
+        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.resetItemStackItemFlag");
+        MessageUtil.sendMessageTo(sender,list);
     }
 }

@@ -11,20 +11,20 @@ import pers.zhangyang.easylibrary.util.MessageUtil;
 import pers.zhangyang.easylibrary.util.PlayerUtil;
 import pers.zhangyang.easylibrary.yaml.MessageYaml;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ResetItemDisplayNameExecutor extends ExecutorBase {
-    public ResetItemDisplayNameExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
+public class AddItemStackLoreExecutor extends ExecutorBase {
+    public AddItemStackLoreExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
         super(sender, commandName, args);
     }
 
     @Override
     protected void run() {
 
-        if (args.length!=0){
+        if (args.length!=1){
             return;
         }
-
 
         if (!(sender instanceof Player)){
 
@@ -44,11 +44,16 @@ public class ResetItemDisplayNameExecutor extends ExecutorBase {
 
         ItemMeta itemMeta=itemStack.getItemMeta();
         assert itemMeta != null;
-        itemMeta.setDisplayName(null);
-
+        List<String> lore=itemMeta.getLore();
+        if (lore==null){
+            lore=new ArrayList<>();
+        }
+        lore.add(args[0]);
+        itemMeta.setLore(lore);
         itemStack.setItemMeta(itemMeta);
 
-        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.resetItemDisplayName");
+
+        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.addStackItemLore");
         MessageUtil.sendMessageTo(sender,list);
     }
 }
