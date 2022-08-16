@@ -77,7 +77,7 @@ public class RemoveItemStackLoreExecutor extends ExecutorBase {
             return;
         }
 
-        if (lore.size() <lineIndex) {
+        if (lineIndex>lore.size()-1) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistLineWhenRemoveItemStackLore");
             MessageUtil.sendMessageTo(sender, list);
             return;
