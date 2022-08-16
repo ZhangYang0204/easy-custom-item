@@ -4,8 +4,6 @@ import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.Damageable;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import pers.zhangyang.easylibrary.base.ExecutorBase;
 import pers.zhangyang.easylibrary.util.MessageUtil;
@@ -28,8 +26,8 @@ public class SetItemStackDurabilityExecutor extends ExecutorBase {
         if (args.length != 1) {
             return;
         }
-        if (VersionUtil.getMinecraftBigVersion()==1&&VersionUtil.getMinecraftMiddleVersion()<13){
-        }else {
+        if (VersionUtil.getMinecraftBigVersion() == 1 && VersionUtil.getMinecraftMiddleVersion() < 13) {
+        } else {
             return;
         }
         if (!(sender instanceof Player)) {
@@ -50,9 +48,9 @@ public class SetItemStackDurabilityExecutor extends ExecutorBase {
 
         short level;
         try {
-            level= Short.parseShort(args[0]);
+            level = Short.parseShort(args[0]);
 
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[0]));
@@ -61,7 +59,7 @@ public class SetItemStackDurabilityExecutor extends ExecutorBase {
             return;
         }
 
-        if (level<0){
+        if (level < 0) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[0]));
@@ -69,13 +67,9 @@ public class SetItemStackDurabilityExecutor extends ExecutorBase {
             MessageUtil.sendMessageTo(sender, list);
             return;
         }
-
-
 
 
         itemStack.setDurability(level);
-
-
 
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.setItemStackDurability");

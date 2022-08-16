@@ -44,7 +44,7 @@ public class RemoveItemStackEnchantmentExecutor extends ExecutorBase {
             return;
         }
 
-        Enchantment enchantment=null;
+        Enchantment enchantment = null;
 
 
         for (Enchantment e : Enchantment.values()) {
@@ -53,7 +53,7 @@ public class RemoveItemStackEnchantmentExecutor extends ExecutorBase {
                 break;
             }
         }
-        if (enchantment==null) {
+        if (enchantment == null) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[0]));
@@ -65,7 +65,7 @@ public class RemoveItemStackEnchantmentExecutor extends ExecutorBase {
         ItemMeta itemMeta = itemStack.getItemMeta();
         assert itemMeta != null;
 
-        if (!itemMeta.hasEnchant(enchantment)){
+        if (!itemMeta.hasEnchant(enchantment)) {
 
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistEnchantment");
             if (list != null) {

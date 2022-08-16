@@ -15,7 +15,7 @@ public class ReloadPluginExecutor extends ExecutorBase {
 
     @Override
     protected void run() {
-        if (args.length!=0){
+        if (args.length != 0) {
             return;
         }
 

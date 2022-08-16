@@ -48,7 +48,7 @@ message:
       - "&b&l/EasyCustomItem setItemStackUnbreakable <true|false> Set unbreakable"
       - "&b&l/EasyCustomItem setItemStackEnchantment <enchantment (with namespace)> <level> Set enchantment, enchantment level cannot be crossed"
       - "&b&l/EasyCustomItem setItemStackDurability <durability> set item loss, not valid for 1.13 and later"
-      - "&b&l/EasyCustomItem showItemStackInformation Show item information"
+      - "&b&l/EasyCustomItem showItemStackInformation Show information about the item while displaying it in the console (easy to copy the property modifier UUID)"
       - "&b&l/EasyCustomItem yamlSerializeItemStack Show the serialization result of the yaml file of the item information in hand, and also in the console (for easy replication)"
     notifyVersion:
       - "&b&lThe current version of EasyCustomItem is &f{current_version}, &b&lthe latest version is &f{latest_version}."

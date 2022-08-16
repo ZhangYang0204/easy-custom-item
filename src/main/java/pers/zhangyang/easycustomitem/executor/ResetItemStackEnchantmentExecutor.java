@@ -46,7 +46,7 @@ public class ResetItemStackEnchantmentExecutor extends ExecutorBase {
         ItemMeta itemMeta = itemStack.getItemMeta();
         assert itemMeta != null;
         for (Enchantment e : Enchantment.values()) {
-            if (itemMeta.hasEnchant(e)){
+            if (itemMeta.hasEnchant(e)) {
                 itemMeta.removeEnchant(e);
             }
         }

@@ -44,7 +44,7 @@ public class SetItemStackEnchantmentExecutor extends ExecutorBase {
             return;
         }
 
-        Enchantment enchantment=null;
+        Enchantment enchantment = null;
 
 
         for (Enchantment e : Enchantment.values()) {
@@ -53,7 +53,7 @@ public class SetItemStackEnchantmentExecutor extends ExecutorBase {
                 break;
             }
         }
-        if (enchantment==null) {
+        if (enchantment == null) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[0]));
@@ -63,9 +63,9 @@ public class SetItemStackEnchantmentExecutor extends ExecutorBase {
         }
         int level;
         try {
-            level= Integer.parseInt(args[1]);
+            level = Integer.parseInt(args[1]);
 
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[1]));
@@ -74,7 +74,7 @@ public class SetItemStackEnchantmentExecutor extends ExecutorBase {
             return;
         }
 
-        if (level<enchantment.getStartLevel()){
+        if (level < enchantment.getStartLevel()) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[1]));
@@ -83,7 +83,7 @@ public class SetItemStackEnchantmentExecutor extends ExecutorBase {
             return;
         }
 
-        if (level>enchantment.getMaxLevel()){
+        if (level > enchantment.getMaxLevel()) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[1]));
@@ -96,7 +96,7 @@ public class SetItemStackEnchantmentExecutor extends ExecutorBase {
         assert itemMeta != null;
 
 
-        itemMeta.addEnchant(enchantment,level,true);
+        itemMeta.addEnchant(enchantment, level, true);
         itemStack.setItemMeta(itemMeta);
 
 

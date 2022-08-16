@@ -43,7 +43,7 @@ public class SetItemStackUnbreakableExecutor extends ExecutorBase {
             return;
         }
 
-        if (!args[0].equalsIgnoreCase("true")&&!args[0].equalsIgnoreCase("false")){
+        if (!args[0].equalsIgnoreCase("true") && !args[0].equalsIgnoreCase("false")) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[0]));

@@ -28,7 +28,7 @@ public class SetItemStackDamageExecutor extends ExecutorBase {
         if (args.length != 1) {
             return;
         }
-        if (VersionUtil.getMinecraftBigVersion()==1&&VersionUtil.getMinecraftMiddleVersion()<13){
+        if (VersionUtil.getMinecraftBigVersion() == 1 && VersionUtil.getMinecraftMiddleVersion() < 13) {
             return;
         }
         if (!(sender instanceof Player)) {
@@ -49,9 +49,9 @@ public class SetItemStackDamageExecutor extends ExecutorBase {
 
         int level;
         try {
-            level= Integer.parseInt(args[0]);
+            level = Integer.parseInt(args[0]);
 
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[0]));
@@ -60,7 +60,7 @@ public class SetItemStackDamageExecutor extends ExecutorBase {
             return;
         }
 
-        if (level<0){
+        if (level < 0) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[0]));
@@ -73,18 +73,16 @@ public class SetItemStackDamageExecutor extends ExecutorBase {
         ItemMeta itemMeta = itemStack.getItemMeta();
         assert itemMeta != null;
 
-        if (!(itemMeta instanceof Damageable)){
+        if (!(itemMeta instanceof Damageable)) {
 
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notDamageable");
             MessageUtil.sendMessageTo(sender, list);
             return;
         }
 
-            Damageable damageable= (Damageable) itemMeta;
-            damageable.setDamage(level);
-            itemStack.setItemMeta(damageable);
-
-
+        Damageable damageable = (Damageable) itemMeta;
+        damageable.setDamage(level);
+        itemStack.setItemMeta(damageable);
 
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.setItemStackEnchantment");

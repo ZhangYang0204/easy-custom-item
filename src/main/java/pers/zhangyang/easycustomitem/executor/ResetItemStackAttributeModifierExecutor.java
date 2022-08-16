@@ -43,12 +43,10 @@ public class ResetItemStackAttributeModifierExecutor extends ExecutorBase {
         }
 
 
-
-
         ItemMeta itemMeta = itemStack.getItemMeta();
         assert itemMeta != null;
 
-        for (Attribute attribute: Attribute.values()) {
+        for (Attribute attribute : Attribute.values()) {
             itemMeta.removeAttributeModifier(attribute);
         }
         itemStack.setItemMeta(itemMeta);

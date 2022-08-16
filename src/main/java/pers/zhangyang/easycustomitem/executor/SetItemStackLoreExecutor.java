@@ -23,73 +23,73 @@ public class SetItemStackLoreExecutor extends ExecutorBase {
     @Override
     protected void run() {
 
-        if (args.length<2){
+        if (args.length < 2) {
             return;
         }
 
-        if (!(sender instanceof Player)){
+        if (!(sender instanceof Player)) {
 
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notPlayer");
-            MessageUtil.sendMessageTo(sender,list);
+            MessageUtil.sendMessageTo(sender, list);
             return;
         }
-        Player player= (Player) sender;
+        Player player = (Player) sender;
 
         int lineIndex;
 
         try {
-            lineIndex=Integer.parseInt(args[0])-1;
-        }catch (NumberFormatException e){
+            lineIndex = Integer.parseInt(args[0]) - 1;
+        } catch (NumberFormatException e) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
-            if (list!=null) {
+            if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[0]));
             }
-            MessageUtil.sendMessageTo(sender,list);
+            MessageUtil.sendMessageTo(sender, list);
             return;
         }
-        if (lineIndex<0){
+        if (lineIndex < 0) {
 
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
-            if (list!=null) {
+            if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[0]));
             }
-            MessageUtil.sendMessageTo(sender,list);
+            MessageUtil.sendMessageTo(sender, list);
             return;
         }
 
-        ItemStack itemStack= PlayerUtil.getItemInMainHand(player);
-        if (itemStack.getType().equals(Material.AIR)){
+        ItemStack itemStack = PlayerUtil.getItemInMainHand(player);
+        if (itemStack.getType().equals(Material.AIR)) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notItemInMainHand");
-            MessageUtil.sendMessageTo(sender,list);
+            MessageUtil.sendMessageTo(sender, list);
             return;
         }
 
-        ItemMeta itemMeta=itemStack.getItemMeta();
+        ItemMeta itemMeta = itemStack.getItemMeta();
         assert itemMeta != null;
-        List<String> lore=itemMeta.getLore();
+        List<String> lore = itemMeta.getLore();
 
-        if (lore==null){
+        if (lore == null) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistLineWhenSetItemStackLore");
-            MessageUtil.sendMessageTo(sender,list);
+            MessageUtil.sendMessageTo(sender, list);
             return;
         }
 
-        if (lore.size()<lineIndex){
+        if (lore.size() < lineIndex) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistLineWhenSetItemStackLore");
-            MessageUtil.sendMessageTo(sender,list);
+            MessageUtil.sendMessageTo(sender, list);
             return;
         }
-        String l=args[1];
-        for (int i=1;i<args.length;i++){
-            l+=" "+args[i];
+        String l = args[1];
+        for (int i = 1; i < args.length; i++) {
+            l += " " + args[i];
         }
 
-        lore.set(lineIndex,l);
+        lore.set(lineIndex, l);
 
         itemMeta.setLore(lore);
         itemStack.setItemMeta(itemMeta);
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.setItemStackLore");
-        MessageUtil.sendMessageTo(sender,list);
+        MessageUtil.sendMessageTo(sender, list);
     }
 }

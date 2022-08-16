@@ -48,7 +48,7 @@ message:
       - "&b&l/EasyCustomItem setItemStackUnbreakable <true|false>       设置不可破坏"
       - "&b&l/EasyCustomItem setItemStackEnchantment <附魔（带命名空间）> <等级>       设置附魔，附魔等级不可越级"
       - "&b&l/EasyCustomItem setItemStackDurability <损耗>       设置物品损耗，1.13及之后无效"
-      - "&b&l/EasyCustomItem showItemStackInformation       展示物品的信息"
+      - "&b&l/EasyCustomItem showItemStackInformation       展示物品的信息，同时展示在控制台（便于复制属性修饰符UUID）"
       - "&b&l/EasyCustomItem yamlSerializeItemStack       把手中物品信息的yaml文件序列化结果展示出来，同时控制台也展示（便于复制）"
     notifyVersion:
       - "&b&lEasyCustomItem的当前版本是 &f{current_version}，&b&l最新版本是 &f{latest_version}。"

@@ -3,7 +3,6 @@ package pers.zhangyang.easycustomitem.executor;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
-import net.md_5.bungee.api.chat.hover.content.Content;
 import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -29,43 +28,43 @@ public class YamlSerializeItemStackExecutor extends ExecutorBase {
     @Override
     protected void run() {
 
-        if (args.length!=0){
+        if (args.length != 0) {
             return;
         }
 
-        if (!(sender instanceof Player)){
+        if (!(sender instanceof Player)) {
 
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notPlayer");
-            MessageUtil.sendMessageTo(sender,list);
+            MessageUtil.sendMessageTo(sender, list);
             return;
         }
-        Player player= (Player) sender;
+        Player player = (Player) sender;
 
 
-        ItemStack itemStack= PlayerUtil.getItemInMainHand(player);
-        if (itemStack.getType().equals(Material.AIR)){
+        ItemStack itemStack = PlayerUtil.getItemInMainHand(player);
+        if (itemStack.getType().equals(Material.AIR)) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notItemInMainHand");
-            MessageUtil.sendMessageTo(sender,list);
+            MessageUtil.sendMessageTo(sender, list);
             return;
         }
 
-        String s=ItemStackUtil.itemStackSerialize(itemStack);
-        TextComponent textComponent=new TextComponent(s);
-        if (VersionUtil.getMinecraftBigVersion()==1&&VersionUtil.getMinecraftMiddleVersion()>=16) {
+        String s = ItemStackUtil.itemStackSerialize(itemStack);
+        TextComponent textComponent = new TextComponent(s);
+        if (VersionUtil.getMinecraftBigVersion() == 1 && VersionUtil.getMinecraftMiddleVersion() >= 16) {
             textComponent.setClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, s));
         }
 
         Bukkit.getConsoleSender().sendMessage(s);
 
-            String hover = MessageYaml.INSTANCE.getNonemptyString("message.component.yamlSerializeItemStack");
-            if (hover != null) {
-                hover = ChatColor.translateAlternateColorCodes('&', hover);
-                if (VersionUtil.getMinecraftBigVersion() == 1 && VersionUtil.getMinecraftMiddleVersion() < 16) {
-                    textComponent.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponent[]{new TextComponent(hover)}));
-                } else {
-                    textComponent.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(hover)));
-                }
+        String hover = MessageYaml.INSTANCE.getNonemptyString("message.component.yamlSerializeItemStack");
+        if (hover != null) {
+            hover = ChatColor.translateAlternateColorCodes('&', hover);
+            if (VersionUtil.getMinecraftBigVersion() == 1 && VersionUtil.getMinecraftMiddleVersion() < 16) {
+                textComponent.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponent[]{new TextComponent(hover)}));
+            } else {
+                textComponent.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(hover)));
             }
+        }
 
         player.spigot().sendMessage(textComponent);
     }

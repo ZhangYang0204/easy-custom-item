@@ -22,28 +22,28 @@ public class ResetItemStackItemFlagExecutor extends ExecutorBase {
     @Override
     protected void run() {
 
-        if (args.length!=0){
+        if (args.length != 0) {
             return;
         }
 
-        if (!(sender instanceof Player)){
+        if (!(sender instanceof Player)) {
 
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notPlayer");
-            MessageUtil.sendMessageTo(sender,list);
+            MessageUtil.sendMessageTo(sender, list);
             return;
         }
-        Player player= (Player) sender;
+        Player player = (Player) sender;
 
 
-        ItemStack itemStack= PlayerUtil.getItemInMainHand(player);
-        if (itemStack.getType().equals(Material.AIR)){
+        ItemStack itemStack = PlayerUtil.getItemInMainHand(player);
+        if (itemStack.getType().equals(Material.AIR)) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notItemInMainHand");
-            MessageUtil.sendMessageTo(sender,list);
+            MessageUtil.sendMessageTo(sender, list);
             return;
         }
 
 
-        ItemMeta itemMeta=itemStack.getItemMeta();
+        ItemMeta itemMeta = itemStack.getItemMeta();
         assert itemMeta != null;
 
         itemMeta.getItemFlags().clear();
@@ -51,6 +51,6 @@ public class ResetItemStackItemFlagExecutor extends ExecutorBase {
 
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.resetItemStackItemFlag");
-        MessageUtil.sendMessageTo(sender,list);
+        MessageUtil.sendMessageTo(sender, list);
     }
 }

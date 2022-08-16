@@ -76,14 +76,14 @@ public class RemoveItemStackAttributeModifierExecutor extends ExecutorBase {
                 }
             }
             if (attributeModifier == null) {
-               continue;
+                continue;
             }
 
             itemMeta.removeAttributeModifier(attribute, attributeModifier);
-            remove=true;
+            remove = true;
 
         }
-        if (!remove){
+        if (!remove) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistAttributeModifier");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[1]));

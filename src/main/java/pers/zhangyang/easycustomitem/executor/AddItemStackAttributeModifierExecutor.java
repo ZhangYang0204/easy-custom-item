@@ -27,7 +27,7 @@ public class AddItemStackAttributeModifierExecutor extends ExecutorBase {
     @Override
     protected void run() {
 
-        if (args.length != 4&&args.length!=5) {
+        if (args.length != 4 && args.length != 5) {
             return;
         }
 
@@ -49,9 +49,9 @@ public class AddItemStackAttributeModifierExecutor extends ExecutorBase {
 
         double amount;
         try {
-            amount= Double.parseDouble(args[2]);
+            amount = Double.parseDouble(args[2]);
 
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[2]));
@@ -60,7 +60,7 @@ public class AddItemStackAttributeModifierExecutor extends ExecutorBase {
             return;
         }
 
-        if (amount<0){
+        if (amount < 0) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[2]));
@@ -71,8 +71,8 @@ public class AddItemStackAttributeModifierExecutor extends ExecutorBase {
 
         AttributeModifier.Operation operation;
         try {
-            operation=AttributeModifier.Operation.valueOf(args[3]);
-        }catch (IllegalArgumentException e){
+            operation = AttributeModifier.Operation.valueOf(args[3]);
+        } catch (IllegalArgumentException e) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[3]));
@@ -82,12 +82,12 @@ public class AddItemStackAttributeModifierExecutor extends ExecutorBase {
         }
 
         AttributeModifier attributeModifier;
-        attributeModifier = new AttributeModifier(UUID.randomUUID(),args[1],amount,operation);
+        attributeModifier = new AttributeModifier(UUID.randomUUID(), args[1], amount, operation);
         EquipmentSlot slot;
-        if (args.length==5) {
+        if (args.length == 5) {
             try {
                 slot = EquipmentSlot.valueOf(args[4]);
-            }catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
                 if (list != null) {
                     ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[4]));
@@ -95,13 +95,13 @@ public class AddItemStackAttributeModifierExecutor extends ExecutorBase {
                 MessageUtil.sendMessageTo(sender, list);
                 return;
             }
-            attributeModifier = new AttributeModifier(UUID.randomUUID(),args[1],amount,operation,slot);
+            attributeModifier = new AttributeModifier(UUID.randomUUID(), args[1], amount, operation, slot);
         }
 
         Attribute attribute;
         try {
-            attribute=Attribute.valueOf(args[0]);
-        }catch (IllegalArgumentException e){
+            attribute = Attribute.valueOf(args[0]);
+        } catch (IllegalArgumentException e) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[0]));
@@ -113,7 +113,7 @@ public class AddItemStackAttributeModifierExecutor extends ExecutorBase {
         ItemMeta itemMeta = itemStack.getItemMeta();
         assert itemMeta != null;
 
-        itemMeta.addAttributeModifier(attribute,attributeModifier);
+        itemMeta.addAttributeModifier(attribute, attributeModifier);
         itemStack.setItemMeta(itemMeta);
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.addItemStackAttributeModifier");
