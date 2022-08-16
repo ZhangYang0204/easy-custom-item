@@ -9,8 +9,10 @@ import org.jetbrains.annotations.NotNull;
 import pers.zhangyang.easylibrary.base.ExecutorBase;
 import pers.zhangyang.easylibrary.util.MessageUtil;
 import pers.zhangyang.easylibrary.util.PlayerUtil;
+import pers.zhangyang.easylibrary.util.ReplaceUtil;
 import pers.zhangyang.easylibrary.yaml.MessageYaml;
 
+import java.util.Collections;
 import java.util.List;
 
 public class RemoveItemStackLoreExecutor extends ExecutorBase {
@@ -21,7 +23,7 @@ public class RemoveItemStackLoreExecutor extends ExecutorBase {
     @Override
     protected void run() {
 
-        if (args.length != 0) {
+        if (args.length != 1) {
             return;
         }
 
@@ -41,6 +43,30 @@ public class RemoveItemStackLoreExecutor extends ExecutorBase {
             return;
         }
 
+
+        int lineIndex;
+
+        try {
+            lineIndex = Integer.parseInt(args[0]) - 1;
+        } catch (NumberFormatException e) {
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
+            if (list != null) {
+                ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[0]));
+            }
+            MessageUtil.sendMessageTo(sender, list);
+            return;
+        }
+        if (lineIndex < 0) {
+
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
+            if (list != null) {
+                ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[0]));
+            }
+            MessageUtil.sendMessageTo(sender, list);
+            return;
+        }
+
+
         ItemMeta itemMeta = itemStack.getItemMeta();
         assert itemMeta != null;
         List<String> lore = itemMeta.getLore();
@@ -51,12 +77,12 @@ public class RemoveItemStackLoreExecutor extends ExecutorBase {
             return;
         }
 
-        if (lore.size() == 0) {
+        if (lore.size() <lineIndex) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistLineWhenRemoveItemStackLore");
             MessageUtil.sendMessageTo(sender, list);
             return;
         }
-        lore.remove(lore.size() - 1);
+        lore.remove(lineIndex);
         itemMeta.setLore(lore);
         itemStack.setItemMeta(itemMeta);
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.removeItemStackLore");

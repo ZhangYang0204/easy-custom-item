@@ -26,10 +26,11 @@ message:
       - "&b&l/EasyCustomItem correctYaml Correct Yaml file"
       - "&b&l/EasyCustomItem reloadPlugin reload plugin"
       - "&b&l/EasyCustomItem addItemStackItemFlag <flag> Add flags, some flags can hide to show some properties, like damage, etc."
-      - "&b&l/EasyCustomItem addItemStackLore <description> Add description for the last line"
+      - "&b&l/EasyCustomItem addItemStackLore <line> <description> Add description, original element moved back"
       - "&b&l/EasyCustomItem addItemStackAttributeModifier <attribute> <attribute modifier name> <attribute modifier value> <attribute modifier action> {attribute modifier slot} Add an attribute modifier to an item, an item can have more than one attribute modifier and the same attribute can have more than one"
+      - "&b&l/EasyCustomItem importItemStack <name> Importing items in itemStack.yml"
       - "&b&l/EasyCustomItem removeItemStackItemFlag <flag> Remove flag"
-      - "&b&l/EasyCustomItem removeItemStackLore Remove last line of description"
+      - "&b&l/EasyCustomItem removeItemStackLore <line> Remove last line of description"
       - "&b&l/EasyCustomItem removeItemStackEnchantment Remove enchantment"
       - "&b&l/EasyCustomItem removeItemStackAttributeModifier <UUUID of attribute modifier> Remove attribute modifier"
       - "&b&l/EasyCustomItem removeItemStackPersistentData <key> <value> Remove string persistent data, key must satisfy [a-z0-9/. _-], invalid for 1.13 and earlier"
@@ -121,7 +122,16 @@ message:
       - "&b&l set enchantment"
     removeItemStackEnchantment:
       - "&B&l removed enchantment"
+    importItemStack:
+      - "&b&l imported the item and it has been automatically sent to your backpack"
 
+
+    notEnoughSpace:
+      - "&c&l do not have enough backpack space"
+    notExistItemStack:
+      - "&b&l non-existent template, cannot be imported"
+    skipElement:
+      - "&b&l cannot skip rows to add descriptions"
     notExistAttributeModifier:
       - "&C&l does not have an attribute modifier"
     notDamageable:

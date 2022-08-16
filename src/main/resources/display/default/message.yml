@@ -26,10 +26,11 @@ message:
       - "&b&l/EasyCustomItem correctYaml       修正Yaml文件"
       - "&b&l/EasyCustomItem reloadPlugin       重载插件"
       - "&b&l/EasyCustomItem addItemStackItemFlag <标志>       添加标志，有些标志可以隐藏显示一些属性，比如伤害等"
-      - "&b&l/EasyCustomItem addItemStackLore <描述>       为最后一行添加描述"
+      - "&b&l/EasyCustomItem addItemStackLore <行> <描述>       添加描述，原有元素后移"
       - "&b&l/EasyCustomItem addItemStackAttributeModifier <属性> <属性修饰符名字> <属性修饰符值> <属性修饰符操作> {属性修饰符槽位}       给物品添加一个属性修饰符，一个物品可以有多个属性修饰符，同一个属性也可以有多个"
+      - "&b&l/EasyCustomItem importItemStack <名字>       导入itemStack.yml中的物品"
       - "&b&l/EasyCustomItem removeItemStackItemFlag <标志>       删除标志"
-      - "&b&l/EasyCustomItem removeItemStackLore       删除最后一行描述"
+      - "&b&l/EasyCustomItem removeItemStackLore <行>       删除最后一行描述"
       - "&b&l/EasyCustomItem removeItemStackEnchantment       删除附魔"
       - "&b&l/EasyCustomItem removeItemStackAttributeModifier <属性修饰符的UUID>       删除属性修饰符"
       - "&b&l/EasyCustomItem removeItemStackPersistentData <键> <值>      删除字符串持久数据，键必须满足[a-z0-9/._-]，1.13及之前无效"
@@ -121,7 +122,16 @@ message:
       - "&b&l设置了附魔"
     removeItemStackEnchantment:
       - "&B&l移除了附魔"
+    importItemStack:
+      - "&b&l导入了物品，已自动发送到你的背包"
 
+
+    notEnoughSpace:
+      - "&c&l没有足够的背包空间"
+    notExistItemStack:
+      - "&c&l不存在的模板，不能导入"
+    skipElement:
+      - "&b&l不能跳过行添加描述"
     notExistAttributeModifier:
       - "&C&l不存在的属性修饰符"
     notDamageable:
