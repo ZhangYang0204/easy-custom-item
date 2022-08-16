@@ -1,5 +1,6 @@
 package pers.zhangyang.easycustomitem.executor;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -44,7 +45,7 @@ public class SetItemStackDisplayNameExecutor extends ExecutorBase {
 
         ItemMeta itemMeta = itemStack.getItemMeta();
         assert itemMeta != null;
-        itemMeta.setDisplayName(args[0]);
+        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',args[0]));
 
         itemStack.setItemMeta(itemMeta);
 
