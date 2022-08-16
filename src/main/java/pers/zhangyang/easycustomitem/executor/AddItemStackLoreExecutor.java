@@ -92,7 +92,7 @@ public class AddItemStackLoreExecutor extends ExecutorBase {
         itemStack.setItemMeta(itemMeta);
 
 
-        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.addStackItemLore");
+        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.addItemStackLore");
         MessageUtil.sendMessageTo(sender, list);
     }
 }
