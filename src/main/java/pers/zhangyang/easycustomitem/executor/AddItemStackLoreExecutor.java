@@ -1,5 +1,6 @@
 package pers.zhangyang.easycustomitem.executor;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -22,7 +23,7 @@ public class AddItemStackLoreExecutor extends ExecutorBase {
     @Override
     protected void run() {
 
-        if (args.length != 1) {
+        if (args.length <= 0) {
             return;
         }
 
@@ -48,7 +49,13 @@ public class AddItemStackLoreExecutor extends ExecutorBase {
         if (lore == null) {
             lore = new ArrayList<>();
         }
-        lore.add(args[0]);
+        String l = args[1];
+        for (int i = 0; i < args.length; i++) {
+            l += " " + ChatColor.translateAlternateColorCodes('&',args[i]);
+        }
+
+
+        lore.add(l);
         itemMeta.setLore(lore);
         itemStack.setItemMeta(itemMeta);
 

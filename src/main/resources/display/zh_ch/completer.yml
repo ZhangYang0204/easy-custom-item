@@ -71,7 +71,7 @@ completer:
     - "<损耗值>"
   easyCustomItemSetItemStackLore$:
     - "<描述>"
-  easyCustomItemAddItemStackAttribute:
+  easyCustomItemAddItemStackAttributeModifier:
     - "<属性名>"
     - "GENERIC_ARMOR"
     - "GENERIC_ARMOR_TOUGHNESS"
