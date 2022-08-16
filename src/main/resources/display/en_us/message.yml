@@ -1,0 +1,138 @@
+message:
+
+  component:
+
+    # optional, if "" is equivalent to not filled, this option is valid only for 1.9 and above, is used to display the hover box
+    yamlSerializeItemStack: "&b&lThis is the result of yaml serialization, click me to copy the result after serialization (1.16 and above to copy)"
+
+
+  chat:
+    failureGetLatestVersion:
+      - "&c&lFailed to get the latest version of EasyCustomItem."
+    notPermission:
+      - "&c&lYou are missing permission &f{permission}."
+    correctYaml:
+      - "&b&lFixed all Yaml files for missing and redundant keys."
+
+    #Enchantments are filled in as namespace:enchantment names, enchantment names can be found here https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html#getKey()
+    #If it's the original enchantment, the namespace is minecraft, if it's not the original enchantment, it depends on how your enchantment was added, usually it's the name of the plugin
+    #Flags are found here https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/ItemFlag.html
+    #attributes are found here https://hub.spigotmc.org/javadocs/spigot/org/bukkit/attribute/Attribute.html
+    #modifier operations here https://hub.spigotmc.org/javadocs/spigot/org/bukkit/attribute/AttributeModifier.Operation.html
+    #slots are here https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/EquipmentSlot.html
+    help:
+      - "&b&l==== help list ===="
+      - "&b&l/EasyCustomItem help View Help"
+      - "&b&l/EasyCustomItem correctYaml Correct Yaml file"
+      - "&b&l/EasyCustomItem reloadPlugin reload plugin"
+      - "&b&l/EasyCustomItem addItemStackItemFlag <flag> Add flags, some flags can hide to show some properties, like damage, etc."
+      - "&b&l/EasyCustomItem addItemStackLore <description> Add description for the last line"
+      - "&b&l/EasyCustomItem addItemStackAttributeModifier <attribute> <attribute modifier name> <attribute modifier value> <attribute modifier action> {attribute modifier slot} Add an attribute modifier to an item, an item can have more than one attribute modifier and the same attribute can have more than one"
+      - "&b&l/EasyCustomItem removeItemStackItemFlag <flag> Remove flag"
+      - "&b&l/EasyCustomItem removeItemStackLore Remove last line of description"
+      - "&b&l/EasyCustomItem removeItemStackEnchantment Remove enchantment"
+      - "&b&l/EasyCustomItem removeItemStackAttributeModifier <UUUID of attribute modifier> Remove attribute modifier"
+      - "&b&l/EasyCustomItem removeItemStackPersistentData <key> <value> Remove string persistent data, key must satisfy [a-z0-9/. _-], invalid for 1.13 and earlier"
+      - "&b&l/EasyCustomItem resetItemStackCustomModelData resetCustomModelData, invalid 1.12 and earlier"
+      - "&b&l/EasyCustomItem resetItemStackAttributeModifier Reset attribute modifier, will remove all attribute modifiers"
+      - "&b&l/EasyCustomItem resetItemStackDisplayName Reset the name"
+      - "&b&l/EasyCustomItem resetItemStackItemFlag Reset flags, will remove all flags"
+      - "&b&l/EasyCustomItem resetItemStackLore Reset description, will remove all descriptions"
+      - "&b&l/EasyCustomItem resetItemStackEnchantment Resets all enchantments, will remove all descriptions"
+      - "&b&l/EasyCustomItem resetItemStackPersistentData Reset string persistent data, will remove all persistent data, not valid for 1.13 and earlier"
+      - "&b&l/EasyCustomItem setItemStackPersistentData <key> <value> Add string persistent data (that is, add hidden information to the item, the namespace will take the name of this plugin), the key must satisfy [a-z0-9/. _-], invalid for 1.13 and earlier"
+      - "&b&l/EasyCustomItem setItemStackCustomModelData <value> setCustomModelData, not valid 1.12 and earlier"
+      - "&b&l/EasyCustomItem setItemStackDisplayName <name> set name"
+      - "&b&l/EasyCustomItem setItemStackLore <line> <description> Set description for this line"
+      - "&b&l/EasyCustomItem setItemStackDamage <value> Set the item's durability loss value, not valid for 1.12 and earlier"
+      - "&b&l/EasyCustomItem setItemStackUnbreakable <true|false> Set unbreakable"
+      - "&b&l/EasyCustomItem setItemStackEnchantment <enchantment (with namespace)> <level> Set enchantment, enchantment level cannot be crossed"
+      - "&b&l/EasyCustomItem setItemStackDurability <durability> set item loss, not valid for 1.13 and later"
+      - "&b&l/EasyCustomItem showItemStackInformation Show item information"
+      - "&b&l/EasyCustomItem yamlSerializeItemStack Show the serialization result of the yaml file of the item information in hand, and also in the console (for easy replication)"
+    notifyVersion:
+      - "&b&lThe current version of EasyCustomItem is &f{current_version}, &b&lthe latest version is &f{latest_version}."
+    enablePlugin:
+      - "&a╭━━━╮╱╱╱╱╱╱╱╱╱╭━━━╮╱╱╱╱╱╭╮╱╱╱╱╱╱╭━━┳╮"
+      - "&a┃╭━━╯╱╱╱╱╱╱╱╱╱┃╭━╮┃╱╱╱╱╭╯╰╮╱╱╱╱╱╰┫┣╯╰╮"
+      - "&a┃╰━━┳━━┳━━┳╮╱╭┫┃╱╰╋╮╭┳━┻╮╭╋━━┳╮╭╮┃┣╮╭╋━━┳╮╭╮"
+      - "&a┃╭━━┫╭╮┃━━┫┃╱┃┃┃╱╭┫┃┃┃━━┫┃┃╭╮┃╰╯┃┃┃┃┃┃┃━┫╰╯┃"
+      - "&a┃╰━━┫╭╮┣━━┃╰━╯┃╰━╯┃╰╯┣━━┃╰┫╰╯┃┃┃┣┫┣┫╰┫┃━┫┃┃┃"
+      - "&a╰━━━┻╯╰┻━━┻━╮╭┻━━━┻━━┻━━┻━┻━━┻┻┻┻━━┻━┻━━┻┻┻╯"
+    disablePlugin:
+      - "&c╭━━━╮╱╱╱╱╱╱╱╱╱╭━━━╮╱╱╱╱╱╭╮╱╱╱╱╱╱╭━━┳╮"
+      - "&c┃╭━━╯╱╱╱╱╱╱╱╱╱┃╭━╮┃╱╱╱╱╭╯╰╮╱╱╱╱╱╰┫┣╯╰╮"
+      - "&c┃╰━━┳━━┳━━┳╮╱╭┫┃╱╰╋╮╭┳━┻╮╭╋━━┳╮╭╮┃┣╮╭╋━━┳╮╭╮"
+      - "&c┃╭━━┫╭╮┃━━┫┃╱┃┃┃╱╭┫┃┃┃━━┫┃┃╭╮┃╰╯┃┃┃┃┃┃┃━┫╰╯┃"
+      - "&c┃╰━━┫╭╮┣━━┃╰━╯┃╰━╯┃╰╯┣━━┃╰┫╰╯┃┃┃┣┫┣┫╰┫┃━┫┃┃┃"
+      - "&c╰━━━┻╯╰┻━━┻━╮╭┻━━━┻━━┻━━┻━┻━━┻┻┻┻━━┻━┻━━┻┻┻╯"
+
+
+    invalidArgument:
+      - "&c&l invalid argument &f{argument}."
+    notItemInMainHand:
+      - "&c&lMust hold item in main hand"
+    notPlayer:
+      - "&c&lNot a player cannot perform this action."
+
+    setItemStackDurability:
+      - "&b&l set the depletion"
+    resetItemStackAttributeModifier:
+      - "&b&l reset the attribute of the item"
+    removeItemStackAttributeModifier:
+      - "&b&l set the item's attributes"
+    addItemStackAttributeModifier:
+      - "&b&l sets the item's attributes"
+    resetItemStackEnchantment:
+      - "&B&l reset the enchantment"
+    setItemStackUnbreakable:
+      - "&b&l set item unbreakable"
+    addItemStackLore:
+      - "&B&l added a line of description"
+    resetItemStackDisplayName:
+      - "&b&l reset the name"
+    resetItemStackCustomModelData:
+      - "&b&l reset CustomModelData"
+    resetItemStackLore:
+      - "&b&l reset the description"
+    reloadPlugin:
+      - "&b&l reloaded the plugin successfully."
+    setItemStackCustomModelData:
+      - "&b&l set the CustomModelData data for the item in hand"
+    setItemStackDisplayName:
+      - "&b&l set the name of the item in hand"
+    setItemStackLore:
+      - "&b&l sets the description of the item in hand"
+    removeItemStackLore:
+      - "&b&l removed the last description line"
+    addItemStackItemFlag:
+      - "&b&lAdded flag"
+    removeItemStackItemFlag:
+      - "&b&lRemoved flag"
+    resetItemStackItemFlag:
+      - "&b&l reset flag"
+    addItemStackPersistentData:
+      - "&b&lAdded a persistent data"
+    removeItemStackPersistentData:
+      - "&b&lRemove this persistent data"
+    resetItemStackPersistentData:
+      - "&b&l reset the persistent data"
+    setItemStackEnchantment:
+      - "&b&l set enchantment"
+    removeItemStackEnchantment:
+      - "&B&l removed enchantment"
+
+    notExistAttributeModifier:
+      - "&C&l does not have an attribute modifier"
+    notDamageable:
+      - "&c&l items may not have a durability loss value"
+    notExistEnchantment:
+      - "&c&l nonexistent enchantment"
+    notExistItemFlag:
+      - "notExistItemFlag"
+    duplicateItemFlag:
+      - "&c&l has already added this flag"
+    notExistLineWhenSetItemStackLore:
+      - "&c&l does not exist in the line"
+    notExistLineWhenRemoveItemStackLore:
+      - "&c&l non-existent lines"

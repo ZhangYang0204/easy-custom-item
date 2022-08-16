@@ -1,11 +1,8 @@
 
-daoPackage:
-  - "pers/zhangyang/easycustomitem/dao"
-listenerPackage:
-  - "pers/zhangyang/easycustomitem/listener"
+daoPackage: []
+listenerPackage: []
 executorPackage:
   - "pers/zhangyang/easycustomitem/executor"
 yamlPackage:
   - "pers/zhangyang/easycustomitem/yaml"
-guiButtonHandlerPackage:
-  - "pers/zhangyang/easycustomitem/listener"
+guiButtonHandlerPackage: []
