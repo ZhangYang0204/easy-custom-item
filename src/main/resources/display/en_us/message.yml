@@ -30,7 +30,7 @@ message:
       - "&b&l/EasyCustomItem addItemStackAttributeModifier <attribute> <attribute modifier name> <attribute modifier value> <attribute modifier action> {attribute modifier slot} Add an attribute modifier to an item, an item can have more than one attribute modifier and the same attribute can have more than one"
       - "&b&l/EasyCustomItem importItemStack <name> Importing items in itemStack.yml"
       - "&b&l/EasyCustomItem removeItemStackItemFlag <flag> Remove flag"
-      - "&b&l/EasyCustomItem removeItemStackLore <line> Remove last line of description"
+      - "&b&l/EasyCustomItem removeItemStackLore <line> Remove description"
       - "&b&l/EasyCustomItem removeItemStackEnchantment Remove enchantment"
       - "&b&l/EasyCustomItem removeItemStackAttributeModifier <UUUID of attribute modifier> Remove attribute modifier"
       - "&b&l/EasyCustomItem removeItemStackPersistentData <key> <value> Remove string persistent data, key must satisfy [a-z0-9/. _-], invalid for 1.13 and earlier"
@@ -105,7 +105,7 @@ message:
     setItemStackLore:
       - "&b&l sets the description of the item in hand"
     removeItemStackLore:
-      - "&b&l removed the last description line"
+      - "&b&l removed the description"
     addItemStackItemFlag:
       - "&b&lAdded flag"
     removeItemStackItemFlag:
