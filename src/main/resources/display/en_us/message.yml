@@ -2,7 +2,7 @@ message:
 
   component:
 
-    # optional, if "" is equivalent to not filled, this option is valid only for 1.9 and above, is used to display the hover box
+    # optional, if "" is equivalent to not filled, this option is used to display the hover box
     yamlSerializeItemStack: "&b&lThis is the result of yaml serialization, click me to copy the result after serialization (1.16 and above to copy)"
 
 
