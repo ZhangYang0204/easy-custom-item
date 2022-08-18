@@ -28,7 +28,7 @@ message:
       - "&b&l/EasyCustomItem addItemStackItemFlag <flag> Add flags, some flags can hide to show some properties, like damage, etc."
       - "&b&l/EasyCustomItem addItemStackLore <line> <description> Add description, original element moved back"
       - "&b&l/EasyCustomItem addItemStackAttributeModifier <attribute> <attribute modifier name> <attribute modifier value> <attribute modifier action> {attribute modifier slot} Add an attribute modifier to an item, an item can have more than one attribute modifier and the same attribute can have more than one"
-      - "&b&l/EasyCustomItem importItemStack <name> Importing items in itemStack.yml"
+      - "&b&l/EasyCustomItem importItemStack <name>  <amount> Importing items in itemStack.yml"
       - "&b&l/EasyCustomItem removeItemStackItemFlag <flag> Remove flag"
       - "&b&l/EasyCustomItem removeItemStackLore <line> Remove description"
       - "&b&l/EasyCustomItem removeItemStackEnchantment Remove enchantment"
@@ -124,7 +124,8 @@ message:
       - "&B&l removed enchantment"
     importItemStack:
       - "&b&l imported the item and it has been automatically sent to your backpack"
-
+    setItemStackDamage:
+      - "&B&lSuccessfully set damage"
 
     notEnoughSpace:
       - "&c&l do not have enough backpack space"

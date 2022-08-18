@@ -26,7 +26,7 @@ public class ImportItemStackExecutor extends ExecutorBase {
     @Override
     protected void run() {
 
-        if (args.length !=1) {
+        if (args.length !=2) {
             return;
         }
 
@@ -38,6 +38,13 @@ public class ImportItemStackExecutor extends ExecutorBase {
         }
         Player player = (Player) sender;
 
+        int amount;
+        try {
+            amount= Integer.parseInt(args[1]);
+        }catch (NumberFormatException e){
+            MessageUtil.invalidArgument(player,args[1]);
+            return;
+        }
 
         ItemStack itemStack = ItemStackYaml.INSTANCE.getItemStack("itemStack."+args[0]);
 
@@ -48,13 +55,13 @@ public class ImportItemStackExecutor extends ExecutorBase {
         }
 
 
-        if (PlayerUtil.checkSpace(player,itemStack)<= itemStack.getAmount()){
+        if (PlayerUtil.checkSpace(player,itemStack)<= itemStack.getAmount()*amount){
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notEnoughSpace");
             MessageUtil.sendMessageTo(sender, list);
             return;
         }
 
-        PlayerUtil.addItem(player,itemStack,itemStack.getAmount());
+        PlayerUtil.addItem(player,itemStack,itemStack.getAmount()*amount);
 
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.importItemStack");

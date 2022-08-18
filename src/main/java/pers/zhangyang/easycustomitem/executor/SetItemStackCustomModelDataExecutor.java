@@ -63,7 +63,7 @@ public class SetItemStackCustomModelDataExecutor extends ExecutorBase {
         ItemMeta itemMeta = itemStack.getItemMeta();
         assert itemMeta != null;
         itemMeta.setCustomModelData(data);
-
+        itemStack.setItemMeta(itemMeta);
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.setItemStackCustomModelData");
         MessageUtil.sendMessageTo(sender, list);

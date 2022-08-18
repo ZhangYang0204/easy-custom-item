@@ -47,6 +47,8 @@ completer:
     - "<描述>"
   easyCustomItemImportItemStack:
     - "<名字>"
+  easyCustomItemImportItemStack$:
+    - "<数量>"
   easyCustomItemSetItemStackPersistentData:
     - "<键>"
   easyCustomItemSetItemStackPersistentData$:

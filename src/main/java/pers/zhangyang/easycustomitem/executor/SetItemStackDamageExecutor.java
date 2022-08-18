@@ -85,7 +85,7 @@ public class SetItemStackDamageExecutor extends ExecutorBase {
         itemStack.setItemMeta(damageable);
 
 
-        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.setItemStackEnchantment");
+        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.setItemStackDamage");
         MessageUtil.sendMessageTo(sender, list);
     }
 }

@@ -43,8 +43,6 @@ public class ShowItemStackInformationExecutor extends ExecutorBase {
             return;
         }
 
-        ItemMeta itemMeta = itemStack.getItemMeta();
-        assert itemMeta != null;
 
         MessageUtil.sendMessageTo(Bukkit.getConsoleSender(), itemStack.toString());
         MessageUtil.sendMessageTo(sender, itemStack.toString());

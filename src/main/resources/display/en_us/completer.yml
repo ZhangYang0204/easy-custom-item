@@ -47,6 +47,8 @@ completer:
     - "<description>"
   easyCustomItemImportItemStack:
     - "<name>"
+  easyCustomItemImportItemStack$:
+    - "<amount>"
   easyCustomItemSetItemStackPersistentData:
     - "<key>"
   easyCustomItemSetItemStackPersistentData$:
