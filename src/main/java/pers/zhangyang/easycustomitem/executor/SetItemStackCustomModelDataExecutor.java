@@ -55,7 +55,7 @@ public class SetItemStackCustomModelDataExecutor extends ExecutorBase {
 
         ItemStack itemStack = PlayerUtil.getItemInMainHand(player);
         if (itemStack.getType().equals(Material.AIR)) {
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notItemInMainHand");
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notItemStackInMainHand");
             MessageUtil.sendMessageTo(sender, list);
             return;
         }

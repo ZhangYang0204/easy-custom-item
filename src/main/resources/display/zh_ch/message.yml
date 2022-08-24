@@ -5,7 +5,7 @@ message:
     #选填，如果是""相当于没填，此选项是用于显示悬浮框的
     yamlSerializeItemStack: "&b&l这是yaml序列化的结果，点我复制序列化后的结果（1.16及以上才能复制）"
 
-
+  #下面可以使用Papi变量
   chat:
     failureGetLatestVersion:
       - "&c&l获得EasyCustomItem最新版本失败。"
@@ -71,7 +71,7 @@ message:
 
     invalidArgument:
       - "&c&l无效的参数 &f{argument}。"
-    notItemInMainHand:
+    notItemStackInMainHand:
       - "&c&l主手必须持有物品"
     notPlayer:
       - "&c&l不是玩家不能执行这个操作。"

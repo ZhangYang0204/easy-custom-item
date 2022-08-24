@@ -5,7 +5,7 @@ message:
     # optional, if "" is equivalent to not filled, this option is used to display the hover box
     yamlSerializeItemStack: "&b&lThis is the result of yaml serialization, click me to copy the result after serialization (1.16 and above to copy)"
 
-
+  # Below you can use Papi variables
   chat:
     failureGetLatestVersion:
       - "&c&lFailed to get the latest version of EasyCustomItem."
@@ -71,7 +71,7 @@ message:
 
     invalidArgument:
       - "&c&l invalid argument &f{argument}."
-    notItemInMainHand:
+    notItemStackInMainHand:
       - "&c&lMust hold item in main hand"
     notPlayer:
       - "&c&lNot a player cannot perform this action."
