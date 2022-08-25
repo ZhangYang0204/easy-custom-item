@@ -128,14 +128,12 @@ message:
     setItemStackDamage:
       - "&B&l设置了物品的损耗"
 
-    notExistLoreWhenAddItemStackLore:
-      - "&C&l不存在的描述，请在第一行添加描述"
+    notExistLineWhenAddItemStackLore:
+      - "&C&l不存在的行"
     notEnoughSpace:
       - "&c&l没有足够的背包空间"
     notExistItemStack:
       - "&c&l不存在的模板，不能导入"
-    skipElement:
-      - "&b&l不能跳过行添加描述"
     notExistAttributeModifier:
       - "&C&l不存在的属性修饰符"
     notDamageable:

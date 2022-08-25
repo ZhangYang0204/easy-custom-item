@@ -127,14 +127,12 @@ message:
     setItemStackDamage:
       - "&B&lSuccessfully set damage"
 
-    notExistLoreWhenAddItemStackLore:
-      - "&C&l non-existent description, please add description in the first line"
+    notExistLineWhenAddItemStackLore:
+      - "&C&l non-existent line"
     notEnoughSpace:
       - "&c&l do not have enough backpack space"
     notExistItemStack:
       - "&b&l non-existent template, cannot be imported"
-    skipElement:
-      - "&b&l cannot skip rows to add descriptions"
     notExistAttributeModifier:
       - "&C&l does not have an attribute modifier"
     notDamageable:

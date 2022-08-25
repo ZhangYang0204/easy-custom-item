@@ -81,7 +81,7 @@ public class AddItemStackLoreExecutor extends ExecutorBase {
         }
 
         if (lineIndex!=0&&lineIndex!=lore.size()&&lineIndex>lore.size()){
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.skipElement");
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistLineWhenAddItemStackLore");
             MessageUtil.sendMessageTo(sender, list);
             return;
         }
