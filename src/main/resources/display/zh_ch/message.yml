@@ -5,7 +5,8 @@ message:
     #选填，如果是""相当于没填，此选项是用于显示悬浮框的
     yamlSerializeItemStack: "&b&l这是yaml序列化的结果，点我复制序列化后的结果（1.16及以上才能复制）"
 
-  #下面可以使用Papi变量
+
+ #下面可以使用Papi变量
   chat:
     failureGetLatestVersion:
       - "&c&l获得EasyCustomItem最新版本失败。"
@@ -127,6 +128,8 @@ message:
     setItemStackDamage:
       - "&B&l设置了物品的损耗"
 
+    notExistLoreWhenAddItemStackLore:
+      - "&C&l不存在的描述，请在第一行添加描述"
     notEnoughSpace:
       - "&c&l没有足够的背包空间"
     notExistItemStack:

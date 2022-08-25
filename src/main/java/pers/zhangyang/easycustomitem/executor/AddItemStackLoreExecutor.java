@@ -71,7 +71,13 @@ public class AddItemStackLoreExecutor extends ExecutorBase {
         assert itemMeta != null;
         List<String> lore = itemMeta.getLore();
         if (lore == null) {
-            lore = new ArrayList<>();
+            if (lineIndex==0) {
+                lore = new ArrayList<>();
+            }else {
+                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistLineWhenAddItemStackLore");
+                MessageUtil.sendMessageTo(sender, list);
+                return;
+            }
         }
 
         if (lineIndex!=0&&lineIndex!=lore.size()&&lineIndex>lore.size()){

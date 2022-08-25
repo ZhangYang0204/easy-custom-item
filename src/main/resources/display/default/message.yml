@@ -128,6 +128,8 @@ message:
     setItemStackDamage:
       - "&B&l设置了物品的损耗"
 
+    notExistLoreWhenAddItemStackLore:
+      - "&C&l不存在的描述，请在第一行添加描述"
     notEnoughSpace:
       - "&c&l没有足够的背包空间"
     notExistItemStack:

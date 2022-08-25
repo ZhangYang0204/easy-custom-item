@@ -127,6 +127,8 @@ message:
     setItemStackDamage:
       - "&B&lSuccessfully set damage"
 
+    notExistLoreWhenAddItemStackLore:
+      - "&C&l non-existent description, please add description in the first line"
     notEnoughSpace:
       - "&c&l do not have enough backpack space"
     notExistItemStack:
