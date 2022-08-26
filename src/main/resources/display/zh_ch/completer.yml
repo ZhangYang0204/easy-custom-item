@@ -49,9 +49,9 @@ completer:
     - "<名字>"
   easyCustomItemImportItemStack$:
     - "<数量>"
-  easyCustomItemSetItemStackPersistentData:
+  easyCustomItemUpdateItemStackPersistentData:
     - "<键>"
-  easyCustomItemSetItemStackPersistentData$:
+  easyCustomItemUpdateItemStackPersistentData$:
     - "<值>"
   easyCustomItemRemoveItemStackItemFlag:
     - "<标志>"
@@ -74,11 +74,11 @@ completer:
     - "<true|false>"
   easyCustomItemSetItemStackDisplayName:
     - "<名字>"
-  easyCustomItemSetItemStackLore:
+  easyCustomItemUpdateItemStackLore:
     - "<行数>"
   easyCustomItemSetItemStackDamage:
     - "<损耗值>"
-  easyCustomItemSetItemStackLore$:
+  easyCustomItemUpdateItemStackLore$:
     - "<描述>"
   easyCustomItemAddItemStackAttributeModifier:
     - "<属性名>"
@@ -96,15 +96,17 @@ completer:
     - "HORSE_JUMP_STRENGTH"
     - "ZOMBIE_SPAWN_REINFORCEMENTS"
   easyCustomItemAddItemStackAttributeModifier$:
-    - "<属性修饰符名字（给修饰符起个名字）>"
+    - "<属性修饰符Uuid（必须是随机的Uuid）>"
   easyCustomItemAddItemStackAttributeModifier$$:
-    - "<属性修饰符值（值，值的计算方法取决于操作）>"
+    - "<属性修饰符名字（给修饰符起个名字）>"
   easyCustomItemAddItemStackAttributeModifier$$$:
+    - "<属性修饰符值（值，值的计算方法取决于操作）>"
+  easyCustomItemAddItemStackAttributeModifier$$$$:
     - "<属性修饰符操作（有直接加、乘百分比、加百分比）>"
     - "ADD_NUMBER"
     - "ADD_SCALAR"
     - "MULTIPLY_SCALAR_1"
-  easyCustomItemAddItemStackAttributeModifier$$$$:
+  easyCustomItemAddItemStackAttributeModifier$$$$$:
     - "{属性修饰符槽位（物品在哪些槽位生效，可选）}"
     - "CHEST"
     - "FEET"

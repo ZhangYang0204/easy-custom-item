@@ -20,8 +20,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class SetItemStackPersistentDataExecutor extends ExecutorBase {
-    public SetItemStackPersistentDataExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
+public class UpdateItemStackPersistentDataExecutor extends ExecutorBase {
+    public UpdateItemStackPersistentDataExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
         super(sender, commandName, args);
     }
 
@@ -64,7 +64,7 @@ public class SetItemStackPersistentDataExecutor extends ExecutorBase {
         itemMeta.getPersistentDataContainer().set(namespacedKey, PersistentDataType.STRING, args[1]);
         itemStack.setItemMeta(itemMeta);
 
-        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.addItemStackPersistentData");
+        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.updateItemStackPersistentData");
         MessageUtil.sendMessageTo(sender, list);
     }
 }

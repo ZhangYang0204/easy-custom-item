@@ -3,8 +3,12 @@ message:
   component:
 
     #选填，如果是""相当于没填，此选项是用于显示悬浮框的
-    yamlSerializeItemStack: "&b&l这是yaml序列化的结果，点我复制序列化后的结果（1.16及以上才能复制）"
+    generateRandomUuid: "&b&l这是随机Uuid，点我复制（1.16及以上才能复制，以下请在控制台复制）"
+    #选填，如果是""相当于没填，此选项是用于显示悬浮框的
+    yamlSerializeItemStack: "&b&l这是yaml序列化的结果，点我复制序列化后的结果（1.16及以上才能复制，以下请在控制台复制）"
 
+    #选填，如果是""相当于没填，此选项是用于显示悬浮框的
+    showItemStackInformation: "&b&l这是物品信息，点我复制信息（1.16及以上才能复制，以下请在控制台复制）"
 
  #下面可以使用Papi变量
   chat:
@@ -28,7 +32,7 @@ message:
       - "&b&l/EasyCustomItem reloadPlugin       重载插件"
       - "&b&l/EasyCustomItem addItemStackItemFlag <标志>       添加标志，有些标志可以隐藏显示一些属性，比如伤害等"
       - "&b&l/EasyCustomItem addItemStackLore <行> <描述>       添加描述，原有元素后移"
-      - "&b&l/EasyCustomItem addItemStackAttributeModifier <属性> <属性修饰符名字> <属性修饰符值> <属性修饰符操作> {属性修饰符槽位}       给物品添加一个属性修饰符，一个物品可以有多个属性修饰符，同一个属性也可以有多个"
+      - "&b&l/EasyCustomItem addItemStackAttributeModifier <属性> <属性修饰符Uuid> <属性修饰符名字> <属性修饰符值> <属性修饰符操作> {属性修饰符槽位}       给物品添加一个属性修饰符，一个物品可以有多个属性修饰符，同一个属性也可以有多个"
       - "&b&l/EasyCustomItem importItemStack <名字> <数量>       导入itemStack.yml中的物品"
       - "&b&l/EasyCustomItem removeItemStackItemFlag <标志>       删除标志"
       - "&b&l/EasyCustomItem removeItemStackLore <行>       删除描述"
@@ -42,10 +46,10 @@ message:
       - "&b&l/EasyCustomItem resetItemStackLore       重置描述，会删除所有描述"
       - "&b&l/EasyCustomItem resetItemStackEnchantment       重置所有附魔，会删除所有描述"
       - "&b&l/EasyCustomItem resetItemStackPersistentData        重置字符串持久数据，会删除所有持久数据，1.13及之前无效"
-      - "&b&l/EasyCustomItem setItemStackPersistentData <键> <值>       添加字符串持久数据（就是给物品添加隐藏的信息，命名空间会采用本插件的名字），键必须满足[a-z0-9/._-]，1.13及之前无效"
+      - "&b&l/EasyCustomItem updateItemStackPersistentData <键> <值>       添加字符串持久数据（就是给物品添加隐藏的信息，命名空间会采用本插件的名字），键必须满足[a-z0-9/._-]，1.13及之前无效"
       - "&b&l/EasyCustomItem setItemStackCustomModelData <值>       设置CustomModelData，1.12及之前无效"
       - "&b&l/EasyCustomItem setItemStackDisplayName <名字>       设置名字"
-      - "&b&l/EasyCustomItem setItemStackLore <行> <描述>       给这行设置描述"
+      - "&b&l/EasyCustomItem updateItemStackLore <行> <描述>       给这行设置描述"
       - "&b&l/EasyCustomItem setItemStackDamage <数值>       设置物品的耐久损耗值，1.12及之前无效"
       - "&b&l/EasyCustomItem setItemStackUnbreakable <true|false>       设置不可破坏"
       - "&b&l/EasyCustomItem setItemStackEnchantment <附魔（带命名空间）> <等级>       设置附魔，附魔等级不可越级"
@@ -103,7 +107,7 @@ message:
       - "&b&l设置了手中物品的CustomModelData数据"
     setItemStackDisplayName:
       - "&b&l设置了手中物品的名字"
-    setItemStackLore:
+    updateItemStackLore:
       - "&b&l设置了手中物品的描述"
     removeItemStackLore:
       - "&b&l删除了描述"
@@ -113,7 +117,7 @@ message:
       - "&b&l移除了标志"
     resetItemStackItemFlag:
       - "&b&l重置标志"
-    addItemStackPersistentData:
+    updateItemStackPersistentData:
       - "&b&l添加了一条持久数据"
     removeItemStackPersistentData:
       - "&b&l移除了这条持久数据"
@@ -144,7 +148,7 @@ message:
       - "不存在的标志"
     duplicateItemFlag:
       - "&c&l已经添加过这个标志了"
-    notExistLineWhenSetItemStackLore:
+    notExistLineWhenUpdateItemStackLore:
       - "&c&l不存在的行"
     notExistLineWhenRemoveItemStackLore:
       - "&c&l不存在的行"

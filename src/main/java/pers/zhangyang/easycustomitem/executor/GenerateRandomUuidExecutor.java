@@ -6,60 +6,42 @@ import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
+import pers.zhangyang.easycustomitem.yaml.MessageYaml;
 import pers.zhangyang.easylibrary.base.ExecutorBase;
-import pers.zhangyang.easylibrary.util.ItemStackUtil;
 import pers.zhangyang.easylibrary.util.MessageUtil;
-import pers.zhangyang.easylibrary.util.PlayerUtil;
 import pers.zhangyang.easylibrary.util.VersionUtil;
-import pers.zhangyang.easylibrary.yaml.MessageYaml;
 
-import java.util.List;
+import java.util.UUID;
 
-public class ShowItemStackInformationExecutor extends ExecutorBase {
-    public ShowItemStackInformationExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
+public class GenerateRandomUuidExecutor extends ExecutorBase {
+    public GenerateRandomUuidExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
         super(sender, commandName, args);
     }
 
     @Override
     protected void run() {
 
-
-        if (args.length != 0) {
-            return;
-        }
-
         if (!(sender instanceof Player)) {
-
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notPlayer");
-            MessageUtil.sendMessageTo(sender, list);
+            MessageUtil.notPlayer(sender);
             return;
         }
         Player player = (Player) sender;
 
 
-        ItemStack itemStack = PlayerUtil.getItemInMainHand(player);
-        if (itemStack.getType().equals(Material.AIR)) {
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notItemStackInMainHand");
-            MessageUtil.sendMessageTo(sender, list);
-            return;
-        }
+        UUID uuid = UUID.randomUUID();
 
-
-        String s = itemStack.toString();
-        TextComponent textComponent = new TextComponent(s);
+        String uuidString = uuid.toString();
+        TextComponent textComponent = new TextComponent(uuidString);
         if (VersionUtil.getMinecraftBigVersion() == 1 && VersionUtil.getMinecraftMiddleVersion() >= 16) {
-            textComponent.setClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, s));
+            textComponent.setClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, uuidString));
         }
 
-        Bukkit.getConsoleSender().sendMessage(s);
+        Bukkit.getConsoleSender().sendMessage(uuidString);
 
-        String hover = MessageYaml.INSTANCE.getNonemptyString("message.component.showItemStackInformation");
+        String hover = MessageYaml.INSTANCE.getNonemptyString("message.component.generateRandomUuid");
         if (hover != null) {
             hover = ChatColor.translateAlternateColorCodes('&', hover);
             if (VersionUtil.getMinecraftBigVersion() == 1 && VersionUtil.getMinecraftMiddleVersion() < 16) {
@@ -70,7 +52,5 @@ public class ShowItemStackInformationExecutor extends ExecutorBase {
         }
 
         player.spigot().sendMessage(textComponent);
-
-
     }
 }

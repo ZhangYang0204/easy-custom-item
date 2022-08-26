@@ -16,8 +16,8 @@ import pers.zhangyang.easylibrary.yaml.MessageYaml;
 import java.util.Collections;
 import java.util.List;
 
-public class SetItemStackLoreExecutor extends ExecutorBase {
-    public SetItemStackLoreExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
+public class UpdateItemStackLoreExecutor extends ExecutorBase {
+    public UpdateItemStackLoreExecutor(@NotNull CommandSender sender, String commandName, @NotNull String[] args) {
         super(sender, commandName, args);
     }
 
@@ -70,13 +70,13 @@ public class SetItemStackLoreExecutor extends ExecutorBase {
         List<String> lore = itemMeta.getLore();
 
         if (lore == null) {
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistLineWhenSetItemStackLore");
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistLineWhenUpdateItemStackLore");
             MessageUtil.sendMessageTo(sender, list);
             return;
         }
 
         if (lore.size() < lineIndex) {
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistLineWhenSetItemStackLore");
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistLineWhenUpdateItemStackLore");
             MessageUtil.sendMessageTo(sender, list);
             return;
         }
@@ -90,7 +90,7 @@ public class SetItemStackLoreExecutor extends ExecutorBase {
         itemMeta.setLore(lore);
         itemStack.setItemMeta(itemMeta);
 
-        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.setItemStackLore");
+        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.updateItemStackLore");
         MessageUtil.sendMessageTo(sender, list);
     }
 }

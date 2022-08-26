@@ -2,8 +2,13 @@ message:
 
   component:
 
-    # optional, if "" is equivalent to not filled, this option is used to display the hover box
-    yamlSerializeItemStack: "&b&lThis is the result of yaml serialization, click me to copy the result after serialization (1.16 and above to copy)"
+    # optional, if it is "" is equivalent to not filled, this option is used to display the hover box
+    generateRandomUuid: "&b&lThis is the random Uuid, click me to copy (1.16 and above to copy, below please copy in the console)"
+    # optional, if it is "" is equivalent to not filled, this option is used to display the hover box
+    yamlSerializeItemStack: "&b&lThis is the result of yaml serialization, click me to copy the result after serialization (1.16 and above to copy, below please copy in console)"
+
+    # optional, if it is "" is equivalent to not filled, this option is used to display the hover box
+    showItemStackInformation: "&b&lThis is the item information, click me to copy the information (1.16 and above to copy, below please copy in the console)"
 
   # Below you can use Papi variables
   chat:
@@ -27,7 +32,7 @@ message:
       - "&b&l/EasyCustomItem reloadPlugin reload plugin"
       - "&b&l/EasyCustomItem addItemStackItemFlag <flag> Add flags, some flags can hide to show some properties, like damage, etc."
       - "&b&l/EasyCustomItem addItemStackLore <line> <description> Add description, original element moved back"
-      - "&b&l/EasyCustomItem addItemStackAttributeModifier <attribute> <attribute modifier name> <attribute modifier value> <attribute modifier action> {attribute modifier slot} Add an attribute modifier to an item, an item can have more than one attribute modifier and the same attribute can have more than one"
+      - "&b&l/EasyCustomItem addItemStackAttributeModifier <attribute> <attribute modifier uuid> <attribute modifier name> <attribute modifier value> <attribute modifier action> {attribute modifier slot} Add an attribute modifier to an item, an item can have more than one attribute modifier and the same attribute can have more than one"
       - "&b&l/EasyCustomItem importItemStack <name>  <amount> Importing items in itemStack.yml"
       - "&b&l/EasyCustomItem removeItemStackItemFlag <flag> Remove flag"
       - "&b&l/EasyCustomItem removeItemStackLore <line> Remove description"
@@ -41,10 +46,10 @@ message:
       - "&b&l/EasyCustomItem resetItemStackLore Reset description, will remove all descriptions"
       - "&b&l/EasyCustomItem resetItemStackEnchantment Resets all enchantments, will remove all descriptions"
       - "&b&l/EasyCustomItem resetItemStackPersistentData Reset string persistent data, will remove all persistent data, not valid for 1.13 and earlier"
-      - "&b&l/EasyCustomItem setItemStackPersistentData <key> <value> Add string persistent data (that is, add hidden information to the item, the namespace will take the name of this plugin), the key must satisfy [a-z0-9/. _-], invalid for 1.13 and earlier"
+      - "&b&l/EasyCustomItem updateItemStackPersistentData <key> <value> Add string persistent data (that is, add hidden information to the item, the namespace will take the name of this plugin), the key must satisfy [a-z0-9/. _-], invalid for 1.13 and earlier"
       - "&b&l/EasyCustomItem setItemStackCustomModelData <value> setCustomModelData, not valid 1.12 and earlier"
       - "&b&l/EasyCustomItem setItemStackDisplayName <name> set name"
-      - "&b&l/EasyCustomItem setItemStackLore <line> <description> Set description for this line"
+      - "&b&l/EasyCustomItem updateItemStackLore <line> <description> Set description for this line"
       - "&b&l/EasyCustomItem setItemStackDamage <value> Set the item's durability loss value, not valid for 1.12 and earlier"
       - "&b&l/EasyCustomItem setItemStackUnbreakable <true|false> Set unbreakable"
       - "&b&l/EasyCustomItem setItemStackEnchantment <enchantment (with namespace)> <level> Set enchantment, enchantment level cannot be crossed"
@@ -102,8 +107,8 @@ message:
       - "&b&l set the CustomModelData data for the item in hand"
     setItemStackDisplayName:
       - "&b&l set the name of the item in hand"
-    setItemStackLore:
-      - "&b&l sets the description of the item in hand"
+    updateItemStackLore:
+      - "&b&l update the description of the item in hand"
     removeItemStackLore:
       - "&b&l removed the description"
     addItemStackItemFlag:
@@ -112,7 +117,7 @@ message:
       - "&b&lRemoved flag"
     resetItemStackItemFlag:
       - "&b&l reset flag"
-    addItemStackPersistentData:
+    updateItemStackPersistentData:
       - "&b&lAdded a persistent data"
     removeItemStackPersistentData:
       - "&b&lRemove this persistent data"
@@ -143,7 +148,7 @@ message:
       - "notExistItemFlag"
     duplicateItemFlag:
       - "&c&l has already added this flag"
-    notExistLineWhenSetItemStackLore:
+    notExistLineWhenUpdateItemStackLore:
       - "&c&l does not exist in the line"
     notExistLineWhenRemoveItemStackLore:
       - "&c&l non-existent lines"

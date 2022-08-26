@@ -49,10 +49,10 @@ completer:
     - "<name>"
   easyCustomItemImportItemStack$:
     - "<amount>"
-  easyCustomItemSetItemStackPersistentData:
-    - "<key>"
-  easyCustomItemSetItemStackPersistentData$:
-    - "<value>"
+  easyCustomItemUpdateItemStackPersistentData:
+    - "<键>"
+  easyCustomItemUpdateItemStackPersistentData$:
+    - "<值>"
   easyCustomItemRemoveItemStackItemFlag:
     - "<flag>"
     - "HIDE_ATTRIBUTES"
@@ -72,11 +72,11 @@ completer:
     - "<true|false>"
   easyCustomItemSetItemStackDisplayName:
     - "<name>"
-  easyCustomItemSetItemStackLore:
+  easyCustomItemUpdateItemStackLore:
     - "<line>"
   easyCustomItemSetItemStackDamage:
     - "<Damage>"
-  easyCustomItemSetItemStackLore$:
+  easyCustomItemUpdateItemStackLore$:
     - "<description>"
   easyCustomItemAddItemStackAttributeModifier:
     - "<属性名>"
@@ -94,15 +94,17 @@ completer:
     - "HORSE_JUMP_STRENGTH"
     - "ZOMBIE_SPAWN_REINFORCEMENTS"
   easyCustomItemAddItemStackAttributeModifier$:
-    - "<attribute modifier name (give modifier a name)>"
+    - "<attribute modifier uuid (must be random uuid)>"
   easyCustomItemAddItemStackAttributeModifier$$:
-    - "<attribute modifier value (the value, how the value is calculated depends on the operation)>"
+    - "<attribute modifier name (give modifier a name)>"
   easyCustomItemAddItemStackAttributeModifier$$$:
+    - "<attribute modifier value (the value, how the value is calculated depends on the operation)>"
+  easyCustomItemAddItemStackAttributeModifier$$$$:
     - "<attribute modifier operation (with direct add, multiply percentage, add percentage)>"
     - "ADD_NUMBER"
     - "ADD_SCALAR"
     - "MULTIPLY_SCALAR_1"
-  easyCustomItemAddItemStackAttributeModifier$$$$:
+  easyCustomItemAddItemStackAttributeModifier$$$$$:
     - "{AttributeModifierEquipmentSlot}"
     - "CHEST"
     - "FEET"

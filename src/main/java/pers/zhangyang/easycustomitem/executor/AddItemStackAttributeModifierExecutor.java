@@ -27,7 +27,7 @@ public class AddItemStackAttributeModifierExecutor extends ExecutorBase {
     @Override
     protected void run() {
 
-        if (args.length != 4 && args.length != 5) {
+        if (args.length != 5 && args.length != 6) {
             return;
         }
 
@@ -49,30 +49,9 @@ public class AddItemStackAttributeModifierExecutor extends ExecutorBase {
 
         double amount;
         try {
-            amount = Double.parseDouble(args[2]);
+            amount = Double.parseDouble(args[3]);
 
         } catch (NumberFormatException e) {
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
-            if (list != null) {
-                ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[2]));
-            }
-            MessageUtil.sendMessageTo(sender, list);
-            return;
-        }
-
-        if (amount < 0) {
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
-            if (list != null) {
-                ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[2]));
-            }
-            MessageUtil.sendMessageTo(sender, list);
-            return;
-        }
-
-        AttributeModifier.Operation operation;
-        try {
-            operation = AttributeModifier.Operation.valueOf(args[3]);
-        } catch (IllegalArgumentException e) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
             if (list != null) {
                 ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[3]));
@@ -81,21 +60,49 @@ public class AddItemStackAttributeModifierExecutor extends ExecutorBase {
             return;
         }
 
+        if (amount < 0) {
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
+            if (list != null) {
+                ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[3]));
+            }
+            MessageUtil.sendMessageTo(sender, list);
+            return;
+        }
+
+        AttributeModifier.Operation operation;
+        try {
+            operation = AttributeModifier.Operation.valueOf(args[4]);
+        } catch (IllegalArgumentException e) {
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
+            if (list != null) {
+                ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[4]));
+            }
+            MessageUtil.sendMessageTo(sender, list);
+            return;
+        }
+        UUID uuid;
+        try {
+            uuid=UUID.fromString(args[1]);
+        }catch (IllegalArgumentException e){
+            MessageUtil.invalidArgument(player,args[1]);
+            return;
+        }
+
         AttributeModifier attributeModifier;
-        attributeModifier = new AttributeModifier(UUID.randomUUID(), args[1], amount, operation);
+        attributeModifier = new AttributeModifier(uuid, args[2], amount, operation);
         EquipmentSlot slot;
-        if (args.length == 5) {
+        if (args.length == 6) {
             try {
-                slot = EquipmentSlot.valueOf(args[4]);
+                slot = EquipmentSlot.valueOf(args[5]);
             } catch (IllegalArgumentException e) {
                 List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.invalidArgument");
                 if (list != null) {
-                    ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[4]));
+                    ReplaceUtil.replace(list, Collections.singletonMap("{argument}", args[5]));
                 }
                 MessageUtil.sendMessageTo(sender, list);
                 return;
             }
-            attributeModifier = new AttributeModifier(UUID.randomUUID(), args[1], amount, operation, slot);
+            attributeModifier = new AttributeModifier(uuid, args[2], amount, operation, slot);
         }
 
         Attribute attribute;
