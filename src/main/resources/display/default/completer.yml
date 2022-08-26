@@ -26,11 +26,12 @@ completer:
     - "setItemStackDisplayName"
     - "setItemStackDurability"
     - "setItemStackEnchantment"
-    - "setItemStackLore"
-    - "setItemStackPersistentData"
+    - "updateItemStackLore"
+    - "updateItemStackPersistentData"
     - "setItemStackUnbreakable"
     - "showItemStackInformation"
     - "yamlSerializeItemStack"
+    - "generateRandomUuid"
 
   easyCustomItemAddItemStackItemFlag:
     - "<标志>"
